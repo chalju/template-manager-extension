@@ -1,1 +1,31 @@
-import os\nfrom dotenv import load_dotenv\n\n# 환경 변수 로드\nload_dotenv()\n\n# 데이터베이스 설정\nDATABASE_URL = os.getenv(\"DATABASE_URL\", \"postgresql://user:password@localhost:5432/db_name\")\n\n# 인증 설정\nSECRET_KEY = os.getenv(\"SECRET_KEY\")  # Required in .env\nALGORITHM = \"HS256\"\nACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv(\"ACCESS_TOKEN_EXPIRE_MINUTES\", \"60\"))\nREFRESH_TOKEN_EXPIRE_DAYS = int(os.getenv(\"REFRESH_TOKEN_EXPIRE_DAYS\", \"30\"))\n\n# 관리자 계정 설정\nADMIN_EMAIL = os.getenv(\"ADMIN_EMAIL\")  # Required in .env\nADMIN_PASSWORD = os.getenv(\"ADMIN_PASSWORD\")  # Required in .env\nADMIN_NAME = os.getenv(\"ADMIN_NAME\", \"Administrator\")\n\n# CLOVA API 설정\nCLOVA_STUDIO_API_KEY = os.getenv(\"CLOVA_STUDIO_API_KEY\")  # Required in .env\nCLOVA_STUDIO_API_ENDPOINT = os.getenv(\"CLOVA_STUDIO_API_ENDPOINT\")  # Required in .env\n\n# 보안 설정\nCORS_ORIGINS = os.getenv(\"CORS_ORIGINS\", \"*\").split(\",\")\n\n# OAuth2.0 설정\nGOOGLE_CLIENT_ID = os.getenv(\"GOOGLE_CLIENT_ID\")  # Required in .env\nGOOGLE_CLIENT_SECRET = os.getenv(\"GOOGLE_CLIENT_SECRET\")  # Required in .env\nGOOGLE_REDIRECT_URI = os.getenv(\"GOOGLE_REDIRECT_URI\", \"http://localhost:8000/api/auth/google/callback\")
+import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
+# Database settings
+DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://user:password@localhost:5432/db_name")
+
+# Authentication settings
+SECRET_KEY = os.getenv("SECRET_KEY")  # Required in .env
+ALGORITHM = "HS256"
+ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "60"))
+REFRESH_TOKEN_EXPIRE_DAYS = int(os.getenv("REFRESH_TOKEN_EXPIRE_DAYS", "30"))
+
+# Admin account settings
+ADMIN_EMAIL = os.getenv("ADMIN_EMAIL")  # Required in .env
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")  # Required in .env
+ADMIN_NAME = os.getenv("ADMIN_NAME", "Administrator")
+
+# CLOVA API settings
+CLOVA_STUDIO_API_KEY = os.getenv("CLOVA_STUDIO_API_KEY")  # Required in .env
+CLOVA_STUDIO_API_ENDPOINT = os.getenv("CLOVA_STUDIO_API_ENDPOINT")  # Required in .env
+
+# Security settings
+CORS_ORIGINS = os.getenv("CORS_ORIGINS", "*").split(",")
+
+# OAuth2.0 settings
+GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")  # Required in .env
+GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")  # Required in .env
+GOOGLE_REDIRECT_URI = os.getenv("GOOGLE_REDIRECT_URI", "http://localhost:8000/api/auth/google/callback")
