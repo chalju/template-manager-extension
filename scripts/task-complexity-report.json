@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "generatedAt": "2025-04-30T12:45:25.722Z",
+    "tasksAnalyzed": 10,
+    "thresholdScore": 5,
+    "projectName": "Your Project Name",
+    "usedResearch": false
+  },
+  "complexityAnalysis": [
+    {
+      "taskId": 1,
+      "taskTitle": "Set up database schema and backend infrastructure",
+      "complexityScore": 8,
+      "recommendedSubtasks": 6,
+      "expansionPrompt": "Break down the database schema and FastAPI backend setup into specific implementation steps, including PostgreSQL model design, Prisma ORM integration, API endpoint creation, and migration system setup.",
+      "reasoning": "This task involves complex database design, ORM integration, and API architecture. It requires careful planning for multiple models, performance optimization, and future migration support."
+    },
+    {
+      "taskId": 2,
+      "taskTitle": "Implement authentication and authorization system",
+      "complexityScore": 7,
+      "recommendedSubtasks": 5,
+      "expansionPrompt": "Detail the specific steps to implement JWT authentication, including token management, endpoint creation, OAuth integration, role-based access control, and secure storage mechanisms.",
+      "reasoning": "Authentication systems are inherently complex with security implications. This task involves multiple authentication methods (JWT, OAuth), role-based permissions, and secure token handling."
+    },
+    {
+      "taskId": 3,
+      "taskTitle": "Create basic Chrome extension structure",
+      "complexityScore": 6,
+      "recommendedSubtasks": 5,
+      "expansionPrompt": "Break down the Chrome extension setup into specific components including manifest configuration, content script implementation, background script development, UI creation, and build process setup.",
+      "reasoning": "Chrome extension architecture requires understanding of multiple components that interact in specific ways. Setting up the TypeScript configuration and build process adds additional complexity."
+    },
+    {
+      "taskId": 4,
+      "taskTitle": "Implement text input field detection and interaction",
+      "complexityScore": 7,
+      "recommendedSubtasks": 5,
+      "expansionPrompt": "Detail the steps to implement text field detection across different web applications, including DOM selection strategies, event handling, cursor position management, and adapter implementation for various CRM systems.",
+      "reasoning": "This task requires handling diverse DOM structures across different web applications. The adapter pattern implementation and focus tracking add significant complexity."
+    },
+    {
+      "taskId": 5,
+      "taskTitle": "Develop keyword-based template matching system",
+      "complexityScore": 6,
+      "recommendedSubtasks": 4,
+      "expansionPrompt": "Break down the template matching system into components for keyword detection, matching algorithm implementation, caching mechanism, and template insertion functionality.",
+      "reasoning": "This task involves creating algorithms for keyword detection and template matching, plus implementing caching strategies. The ranking system based on usage frequency adds moderate complexity."
+    },
+    {
+      "taskId": 6,
+      "taskTitle": "Implement recommendation UI components",
+      "complexityScore": 5,
+      "recommendedSubtasks": 4,
+      "expansionPrompt": "Detail the steps to create the recommendation UI, including floating component positioning, keyboard navigation implementation, animation development, and adaptive layout design.",
+      "reasoning": "UI implementation with specific positioning requirements and keyboard navigation adds moderate complexity. The need for animations and adaptive layouts requires careful implementation."
+    },
+    {
+      "taskId": 7,
+      "taskTitle": "Integrate CLOVA Studio HCX-005 API for text prediction",
+      "complexityScore": 8,
+      "recommendedSubtasks": 6,
+      "expansionPrompt": "Break down the CLOVA API integration into steps including client setup, context extraction logic, prompt engineering, caching implementation, error handling, and privacy control development.",
+      "reasoning": "AI API integration involves complex prompt engineering and context management. The requirements for caching, error handling, and privacy controls significantly increase complexity."
+    },
+    {
+      "taskId": 8,
+      "taskTitle": "Develop user settings and template management interface",
+      "complexityScore": 6,
+      "recommendedSubtasks": 5,
+      "expansionPrompt": "Detail the components needed for the settings interface, including template CRUD operations, preference controls, sharing functionality, categorization system, and import/export features.",
+      "reasoning": "This task involves creating multiple UI components with complex interactions. The template management features and sharing controls require careful state management."
+    },
+    {
+      "taskId": 9,
+      "taskTitle": "Implement usage history tracking and personalization",
+      "complexityScore": 7,
+      "recommendedSubtasks": 5,
+      "expansionPrompt": "Break down the usage tracking system into components for pattern tracking, storage implementation, recommendation algorithms, privacy controls, and data management policies.",
+      "reasoning": "This task involves complex data analysis for personalization and privacy considerations. The recommendation algorithms and anonymization requirements add significant complexity."
+    },
+    {
+      "taskId": 10,
+      "taskTitle": "Implement cross-device synchronization and team sharing",
+      "complexityScore": 9,
+      "recommendedSubtasks": 7,
+      "expansionPrompt": "Detail the steps to implement cross-device synchronization, including data sync mechanisms, conflict resolution strategies, access control systems, notification features, offline capabilities, admin controls, and audit logging.",
+      "reasoning": "Synchronization across devices with conflict resolution is inherently complex. Team sharing with proper access controls and offline capabilities adds significant complexity. This is one of the most challenging tasks in the project."
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+/**
+ * 콘텐츠 스크립트 CSS 스타일
+ */
+
+/* 입력 필드에 리스너가 연결되었을 때의 시각적 표시 (테스트 목적으로만 사용, 실제 배포에서는 제거) */
+/*
+[data-assistext-attached="true"] {
+  border-bottom: 1px dashed #007bff !important;
+}
+*/
+
+/* 추천 UI의 추가 스타일링 */
+.assist-suggestion-container {
+  transition: all 0.2s ease-in-out;
+  transform-origin: top left;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.assist-suggestion-container.visible {
+  animation: assist-fade-in 0.2s forwards;
+}
+
+@keyframes assist-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 키보드 포커스 스타일 */
+.assist-suggestion-item.active {
+  background-color: #f0f7ff;
+} 
