@@ -43,3 +43,12 @@ htmlcov/
 # Logs
 *.log
 logs/
+
+# Environment variables
+.env
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.class
