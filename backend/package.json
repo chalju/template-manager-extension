@@ -1,0 +1,15 @@
+{
+  "name": "ai-assistant-backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI 문장 자동완성 어시스턴트 백엔드",
+  "scripts": {
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio",
+    "prisma:format": "prisma format"
+  },
+  "devDependencies": {
+    "prisma": "^5.4.2"
+  }
+} 

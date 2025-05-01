@@ -1,0 +1,137 @@
+// Prisma schema
+
+generator client {
+  provider             = "prisma-client-py"
+  interface            = "asyncio"
+  recursive_type_depth = 5
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Role {
+  id             String          @id @default(uuid())
+  name           String          @unique
+  description    String?
+  permissions    Permission[]
+  users          User[]
+  created_at     DateTime        @default(now())
+}
+
+model Permission {
+  id             String          @id @default(uuid())
+  name           String          @unique
+  description    String?
+  roles          Role[]
+  created_at     DateTime        @default(now())
+}
+
+model User {
+  id           String         @id @default(uuid())
+  email        String         @unique
+  password_hash String
+  name         String
+  created_at   DateTime       @default(now())
+  updated_at   DateTime       @updatedAt
+  role_id      String?
+  
+  // 관계
+  role         Role?          @relation(fields: [role_id], references: [id])
+  templates    Template[]
+  settings     UserSettings?
+  usage_history UsageHistory[]
+  refresh_tokens RefreshToken[]
+  
+  @@index([role_id])
+}
+
+model RefreshToken {
+  id            String      @id @default(uuid())
+  token         String      @unique
+  user_id       String
+  expires_at    DateTime
+  created_at    DateTime    @default(now())
+  revoked       Boolean     @default(false)
+  
+  // 관계
+  user          User        @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  
+  @@index([user_id])
+  @@index([token])
+}
+
+model Template {
+  id          String        @id @default(uuid())
+  user_id     String
+  title       String
+  content     String
+  keyword     String
+  usage_count Int           @default(0)
+  is_shared   Boolean       @default(false)
+  tags        String[]      @default([])
+  category    String?
+  version     Int           @default(1)
+  created_at  DateTime      @default(now())
+  updated_at  DateTime      @updatedAt
+  
+  // 관계
+  user        User          @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  usage_history UsageHistory[]
+  versions    TemplateVersion[]
+  
+  @@index([user_id])
+  @@index([keyword])
+  @@index([category])
+}
+
+model TemplateVersion {
+  id            String    @id @default(uuid())
+  template_id   String
+  version_number Int
+  content       String
+  version_note  String?
+  created_at    DateTime  @default(now())
+  
+  // 관계
+  template      Template  @relation(fields: [template_id], references: [id], onDelete: Cascade)
+  
+  @@unique([template_id, version_number])
+  @@index([template_id])
+}
+
+model UserSettings {
+  id                  String    @id @default(uuid())
+  user_id             String    @unique
+  enable_suggestions  Boolean   @default(true)
+  suggestion_frequency String    @default("medium")
+  enable_history      Boolean   @default(true)
+  domains             String[]  @default([])
+  created_at          DateTime  @default(now())
+  updated_at          DateTime  @updatedAt
+  
+  // 관계
+  user                User      @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  
+  @@index([user_id])
+}
+
+model UsageHistory {
+  id             String    @id @default(uuid())
+  user_id        String
+  template_id    String?
+  context        String
+  generated_text String
+  selected       Boolean   @default(false)
+  timestamp      DateTime  @default(now())
+  domain         String?
+  
+  // 관계
+  user           User      @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  template       Template? @relation(fields: [template_id], references: [id], onDelete: SetNull)
+  
+  @@index([user_id])
+  @@index([template_id])
+  @@index([timestamp])
+} 
